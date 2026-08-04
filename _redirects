@@ -1,0 +1,3 @@
+# Cloudflare Pages 重定向规则
+# 隐私政策直接指向后端的隐私页（与 Footer 链接一致）
+/privacy     https://denjay.qzz.io/privacy     301

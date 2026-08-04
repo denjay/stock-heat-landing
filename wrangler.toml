@@ -1,0 +1,9 @@
+name = "stock-heat-landing"
+compatibility_date = "2024-12-01"
+pages_build_output_dir = "."
+
+# Cloudflare Pages 不需要 build 命令，直接发布静态文件即可
+# 如未来引入构建工具（如 Astro/Hugo），可在此指定：
+# [build]
+# command = "npm run build"
+# output_dir = "dist"

@@ -1,0 +1,14 @@
+{
+  "name": "stock-heat-landing",
+  "version": "1.0.0",
+  "description": "热股 Stock Heat Tracker 推广页面（Cloudflare Pages 部署）",
+  "private": true,
+  "scripts": {
+    "dev": "wrangler pages dev .",
+    "deploy": "wrangler pages deploy . --project-name stock-heat-landing",
+    "deploy:prod": "wrangler pages deploy . --project-name stock-heat-landing --branch main"
+  },
+  "devDependencies": {
+    "wrangler": "^3.90.0"
+  }
+}

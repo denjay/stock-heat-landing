@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#d32f2f" />
+  <title>热股 Stock Heat Tracker — 实时热度排名 · AI 智能选股 · 财经资讯播报</title>
+  <meta name="description" content="热股是一款 A 股热度聚合 App，聚合同花顺、东方财富、通达信、大智慧、雪球、淘股吧 6 大平台热度数据，提供综合排名、走势、自选股、AI 掘金、资讯播报等功能。" />
+  <meta name="keywords" content="热股,Stock Heat,股票热度,A股,选股,AI掘金,资讯播报,同花顺,东方财富,通达信,雪球,大智慧,淘股吧,Flutter" />
+  <meta name="author" content="DenJay" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="热股 Stock Heat Tracker" />
+  <meta property="og:description" content="实时热度排名 · AI 智能选股 · 财经资讯播报 — 6 大平台热度聚合" />
+  <meta property="og:image" content="assets/screenshots/feature-graphic.png" />
+  <meta property="og:locale" content="zh_CN" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="热股 Stock Heat Tracker" />
+  <meta name="twitter:description" content="实时热度排名 · AI 智能选股 · 财经资讯播报" />
+  <meta name="twitter:image" content="assets/screenshots/feature-graphic.png" />
+
+  <link rel="icon" type="image/png" href="assets/screenshots/icon.png" />
+  <link rel="apple-touch-icon" href="assets/screenshots/icon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- 顶部导航 -->
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" aria-label="热股 首页">
+        <img src="assets/screenshots/icon.png" alt="" class="brand-icon" />
+        <span class="brand-text">热股<small>Stock Heat</small></span>
+      </a>
+      <nav class="nav-links" aria-label="主导航">
+        <a href="#features">功能</a>
+        <a href="#screenshots">预览</a>
+        <a href="https://play.google.com/store/apps/details?id=com.stockheat.stock_heat_app" target="_blank" rel="noopener">Google Play</a>
+        <a href="#faq">常见问题</a>
+        <a class="nav-cta" href="https://play.google.com/store/apps/details?id=com.stockheat.stock_heat_app" target="_blank" rel="noopener">前往 Google Play</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- Hero 区 -->
+    <section class="hero">
+      <div class="hero-bg" aria-hidden="true"></div>
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <span class="eyebrow">v1.0 · Android 专版</span>
+          <h1>实时热度排名<br /><span class="grad">AI 智能选股</span><br />财经资讯播报</h1>
+          <p class="lede">
+            聚合 <strong>6 大平台</strong> 热度数据 — 同花顺、东方财富、通达信、大智慧、雪球、淘股吧。
+            可自定义权重、主板过滤、5 天走势追踪、智能提醒，<strong>后台持续播报</strong> 不错过任何重要资讯。
+          </p>
+          <div class="cta-row">
+            <a class="btn btn-primary" href="https://play.google.com/store/apps/details?id=com.stockheat.stock_heat_app" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M3 20.5v-17c0-.5.3-1 .7-1.3L13.4 12 3.7 21.8c-.4-.3-.7-.8-.7-1.3zm18.5-7.2l-4.2 2.4-3.4-3.4 3.4-3.4 4.2 2.4c.9.5.9 1.9 0 2.4zM12.7 12L4.3 3.6c.1 0 .2-.1.3-.1h11.2l-3.1 3.1L12.7 12zm0 0l3.1 3.1H4.6c-.1 0-.2 0-.3-.1L12.7 12z"/></svg>
+              前往 Google Play 下载
+            </a>
+            <a class="btn btn-ghost" href="#features">了解功能</a>
+          </div>
+          <ul class="hero-stats">
+            <li><strong>6</strong><span>数据源</span></li>
+            <li><strong>5天</strong><span>走势</span></li>
+            <li><strong>2分钟</strong><span>资讯更新</span></li>
+            <li><strong>24h</strong><span>后台播报</span></li>
+          </ul>
+        </div>
+        <div class="hero-visual">
+          <div class="phone-frame">
+            <img src="assets/screenshots/01-ranking.png" alt="综合热度排名界面" />
+          </div>
+          <div class="phone-frame phone-frame-2">
+            <img src="assets/screenshots/02-ai-pick.png" alt="AI 掘金界面" />
+          </div>
+          <div class="glow" aria-hidden="true"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 信任条 -->
+    <section class="trust">
+      <div class="container">
+        <p class="trust-title">数据源覆盖全网主流平台 · 透明可定制权重</p>
+        <div class="trust-row">
+          <span class="trust-pill">同花顺</span>
+          <span class="trust-pill">东方财富</span>
+          <span class="trust-pill">通达信</span>
+          <span class="trust-pill">大智慧</span>
+          <span class="trust-pill">雪球</span>
+          <span class="trust-pill">淘股吧</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 功能区 -->
+    <section id="features" class="section">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow">核心功能</span>
+          <h2>不止是热度排名</h2>
+          <p>从全局热度到个股深度，从历史走势到 AI 智能分析，一个 App 全搞定。</p>
+        </header>
+        <div class="grid">
+          <article class="card">
+            <div class="card-ico"><span>🔥</span></div>
+            <h3>综合热度排名</h3>
+            <p>6 大平台加权综合分，前 20 名一目了然。三金银铜徽章、平台排名彩签、昨日变化、概念标签全展示。</p>
+            <ul class="bullets">
+              <li>交易时段涨跌幅每 5 秒静默刷新</li>
+              <li>下拉/点 Tab 手动刷新，超时 20s 自动重试</li>
+              <li>主板过滤、自定义权重、排名条数可调</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-ico"><span>📈</span></div>
+            <h3>5 天热度走势</h3>
+            <p>Y 轴反转折线图，1~50 名多线对比，点击高亮、底部固定 Tooltip。一眼看清哪只股票在悄悄爬升。</p>
+            <ul class="bullets">
+              <li>24h / 3d / 5d 三档时间范围</li>
+              <li>图例长按查详情 / 加入自选</li>
+              <li>本地缓存 + 后台静默刷新</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-ico"><span>⭐</span></div>
+            <h3>自选股 & 智能提醒</h3>
+            <p>搜索加入、按时间分组、左滑删除、备注编辑。每只股票可设多条条件提醒，<strong>后台不漏触发</strong>。</p>
+            <ul class="bullets">
+              <li>价格阈值 / 自定义表达式（安全沙箱）</li>
+              <li>三重提醒：TTS 语音 + 震动 + 原生通知</li>
+              <li>系统级悬浮盯盘球（Android）</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-ico"><span>🤖</span></div>
+            <h3>AI 掘金</h3>
+            <p>大模型每日 8:30 / 14:30 自动分析精选资讯，挖掘 A 股利好方向与受益个股。会员还可手动「实时分析」。</p>
+            <ul class="bullets">
+              <li>候选资讯经 LLM 过滤 / 评分 / 精简</li>
+              <li>收藏、加载更多 D1 历史</li>
+              <li>免费 1 次/日，会员 5 次/日</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-ico"><span>📰</span></div>
+            <h3>资讯播报</h3>
+            <p>财联社电报经 LLM 提炼标题与摘要，2 分钟一轮增量拉取。开启 TTS 后即使 App 在后台也能持续朗读。</p>
+            <ul class="bullets">
+              <li>独立 Android 前台服务播报引擎</li>
+              <li>通知栏快捷控制：暂停 / 继续 / 停止</li>
+              <li>播放媒体时自动让位</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <div class="card-ico"><span>📊</span></div>
+            <h3>行情 & K 线</h3>
+            <p>三大指数实时涨跌条、上涨家数占比折线、主力资金净流入柱状图、历史相似日匹配，以及手绘 K 线图。</p>
+            <ul class="bullets">
+              <li>K 线：分时 / 日K / 周K / 月K + MA + 成交量</li>
+              <li>双指缩放、平移，涨停高亮</li>
+              <li>板块 / 概念排行 6 周期切换</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 截图区 -->
+    <section id="screenshots" class="section section-alt">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow">界面预览</span>
+          <h2>看看热股长什么样</h2>
+          <p>深色主题为主，红绿涨跌遵循 A 股习惯。每屏都是一处贴心的设计。</p>
+        </header>
+        <div class="screenshots-grid">
+          <figure class="shot">
+            <div class="phone"><img src="assets/screenshots/01-ranking.png" alt="综合热度排名" loading="lazy" /></div>
+            <figcaption>综合排名 · 多平台加权</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="phone"><img src="assets/screenshots/02-ai-pick.png" alt="AI 掘金" loading="lazy" /></div>
+            <figcaption>AI 掘金 · 大模型精选</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="phone"><img src="assets/screenshots/03-trend.png" alt="热度走势" loading="lazy" /></div>
+            <figcaption>热度走势 · 5 天趋势</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="phone"><img src="assets/screenshots/04-watchlist.png" alt="自选管理" loading="lazy" /></div>
+            <figcaption>自选股 · 智能提醒</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="phone"><img src="assets/screenshots/05-news.png" alt="资讯播报" loading="lazy" /></div>
+            <figcaption>资讯播报 · TTS 朗读</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="phone"><img src="assets/screenshots/06-market.png" alt="实时行情" loading="lazy" /></div>
+            <figcaption>实时行情 · 主力资金</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 工作流 -->
+    <section class="section">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow">为什么选择热股</span>
+          <h2>透明 · 可控 · 不打扰</h2>
+        </header>
+        <ol class="steps">
+          <li>
+            <span class="step-num">01</span>
+            <h3>数据透明</h3>
+            <p>所有原始数据来自公开平台，抓取频率、缓存策略、鉴权签名全部开源可查。</p>
+          </li>
+          <li>
+            <span class="step-num">02</span>
+            <h3>算法可控</h3>
+            <p>平台权重 0~5 自由调节，主板过滤、排名条数、历史回看 0~72h 全部由你说了算。</p>
+          </li>
+          <li>
+            <span class="step-num">03</span>
+            <h3>订阅可选</h3>
+            <p>免费版覆盖 90% 核心需求，会员（热股 PRO）解锁多线走势、悬浮球、实时分析等增强功能。</p>
+          </li>
+          <li>
+            <span class="step-num">04</span>
+            <h3>后台克制</h3>
+            <p>默认仅当前页轮询；订阅播报才常驻后台，并提供通知栏一键暂停。</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 下载区 -->
+    <section id="download" class="section section-cta">
+      <div class="container cta-card">
+        <div class="cta-text">
+          <h2>立即体验热股</h2>
+          <p>前往 Google Play 下载 Android 版。数据本地保存，不上传任何隐私。</p>
+          <div class="cta-buttons">
+            <a class="btn btn-primary btn-lg" href="https://play.google.com/store/apps/details?id=com.stockheat.stock_heat_app" target="_blank" rel="noopener" aria-label="前往 Google Play 下载热股">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M3 20.5v-17c0-.5.3-1 .7-1.3L13.4 12 3.7 21.8c-.4-.3-.7-.8-.7-1.3zm18.5-7.2l-4.2 2.4-3.4-3.4 3.4-3.4 4.2 2.4c.9.5.9 1.9 0 2.4zM12.7 12L4.3 3.6c.1 0 .2-.1.3-.1h11.2l-3.1 3.1L12.7 12zm0 0l3.1 3.1H4.6c-.1 0-.2 0-.3-.1L12.7 12z"/></svg>
+              前往 Google Play 下载
+            </a>
+          </div>
+          <p class="cta-hint">系统要求：Android 7.0+</p>
+        </div>
+        <div class="cta-visual">
+          <div class="phone"><img src="assets/screenshots/01-ranking.png" alt="热股界面预览" /></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="section">
+      <div class="container">
+        <header class="section-head">
+          <span class="eyebrow">常见问题</span>
+          <h2>你想问的，可能都在这</h2>
+        </header>
+        <div class="faq">
+          <details>
+            <summary>数据来源是什么？</summary>
+            <p>数据来自同花顺、东方财富、通达信、大智慧、雪球、淘股吧 6 个公开平台，每 30 分钟由后端定时抓取并入库到 Cloudflare D1。</p>
+          </details>
+          <details>
+            <summary>会推送通知打扰我吗？</summary>
+            <p>不会。默认仅当前页轮询刷新数据；订阅播报功能后会在通知栏常驻一条「暂停/继续/停止」快捷控制，随时可关。</p>
+          </details>
+          <details>
+            <summary>热股 PRO 会员有什么特别？</summary>
+            <p>解锁多线走势（5+ 只对比）、更多排名条数（最高 50）、自定义权重、悬浮球、实时 AI 分析（5 次/日）等增强功能。</p>
+          </details>
+          <details>
+            <summary>数据会上传吗？隐私安全吗？</summary>
+            <p>所有股票数据来自公开平台 API；个人配置（自选股、权重、提醒）仅保存在本机。隐私政策请参阅 <a href="https://denjay.qzz.io/privacy">denjay.qzz.io/privacy</a>。</p>
+          </details>
+          <details>
+            <summary>排行榜怎么算的？为什么我看到的排名和别人不一样？</summary>
+            <p>综合分 = 各平台排名归一化分 × 平台权重 之和。你可以自由调整权重、关闭/启用某些平台，因此不同账号排名可能不同。</p>
+          </details>
+          <details>
+            <summary>iOS 版什么时候出？</summary>
+            <p>暂无 iOS 计划。App 基于 Flutter 开发，技术上支持但目前只发布 Android 版本。</p>
+          </details>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/screenshots/icon.png" alt="" class="footer-icon" />
+        <div>
+          <strong>热股 Stock Heat Tracker</strong>
+          <p>实时热度排名 · AI 智能选股 · 财经资讯播报</p>
+        </div>
+      </div>
+      <div class="footer-meta">
+        <p>本站仅做产品推广展示，不构成任何投资建议。股票有风险，入市需谨慎。</p>
+        <p class="muted">
+          <a href="https://denjay.qzz.io/privacy">隐私政策</a> ·
+          <a href="https://github.com/" rel="noopener">GitHub</a> ·
+          <span>© 2026 DenJay</span>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js" defer></script>
+</body>
+</html>

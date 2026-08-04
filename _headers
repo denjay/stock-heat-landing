@@ -1,0 +1,15 @@
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+  Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; connect-src 'self'
+
+# 截图素材 & 图标 — 缓存 7 天（含 favicon/icon.png 等所有图片）
+/assets/screenshots/*.png
+  Cache-Control: public, max-age=604800, immutable
+
+# HTML 不缓存（避免更新后用户看不到）
+/*.html
+  Cache-Control: public, max-age=300, must-revalidate
