@@ -5,8 +5,8 @@
   "private": true,
   "scripts": {
     "dev": "wrangler pages dev .",
-    "deploy": "wrangler pages deploy . --project-name stock-heat-landing",
-    "deploy:prod": "wrangler pages deploy . --project-name stock-heat-landing --branch main"
+    "deploy": "wrangler pages deploy . --project-name stock-heat-landing --skip-caching",
+    "deploy:prod": "wrangler pages deploy . --project-name stock-heat-landing --branch main --skip-caching"
   },
   "devDependencies": {
     "wrangler": "^3.90.0"
