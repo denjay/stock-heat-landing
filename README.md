@@ -19,12 +19,15 @@ stock-heat-landing/
 │       ├── 04-watchlist.png     # 移动端：自选
 │       ├── 05-news.png          # 移动端：资讯
 │       ├── 06-market.png        # 移动端：行情
+│       ├── 07-detail.png         # 移动端：个股详情
+│       ├── 08-float.png          # 移动端：悬浮盯盘球
 │       ├── desktop-01-ranking.png   # 桌面端：排名
 │       ├── desktop-02-market.png    # 桌面端：行情
 │       ├── desktop-03-trend.png     # 桌面端：走势
 │       ├── desktop-04-watchlist.png # 桌面端：自选
 │       ├── desktop-05-news.png      # 桌面端：资讯播报
 │       ├── desktop-06-detail.png    # 桌面端：个股详情
+│       ├── desktop-07-float.png     # 桌面端：悬浮盯盘球
 │       ├── feature-graphic.png
 │       └── icon.png
 ├── _headers                    # Cloudflare Pages 缓存策略 + 安全头
@@ -74,12 +77,18 @@ npx wrangler pages dev .
 ```bash
 cd stock-heat-landing
 npm install              # 安装 wrangler
-npm run deploy           # 等价于 wrangler pages deploy . --project-name stock-heat-landing --skip-caching
+npm run deploy           # 部署到 main 分支的 Production 环境，更新根域名 stock-heat-landing.pages.dev
+# 等价命令：
+#   wrangler pages deploy . --project-name stock-heat-landing --branch main --skip-caching
+# 仅部署到预览分支、不更新根域名：
+#   npm run deploy:preview
 ```
 
 首次运行会要求登录 Cloudflare 并在 Dashboard 创建项目（或用 `wrangler pages project create stock-heat-landing` 提前创建）。
 
-> ⚠️ **务必加 `--skip-caching`**：`wrangler pages deploy` 默认会缓存已上传文件的哈希（存在 Cloudflare 端）。在本仓库（git 模式 + `wrangler.toml` 的 `pages_build_output_dir = "."`）下，修改文件后直接部署常会报 `Uploaded 0 files (xx already uploaded)`，而远程实际仍是旧内容——表现为改了代码/配置却不生效。加 `--skip-caching` 可强制重新计算并上传全部文件。若用 `npm run deploy`，请确认 `package.json` 里的脚本已带上该参数。
+> ⚠️ **默认 `npm run deploy` 已带 `--branch main`**：Pages 项目的 Production 环境对应 `main` 分支，根域名 `https://stock-heat-landing.pages.dev` **只跟随 `main` 分支的 Production 部署**。若漏掉 `--branch main`（例如仅 `wrangler pages deploy .`），部署会落到 `master`/预览分支，**根域名不会更新**，表现为改了代码却不生效。如果本地 git 工作在 `master` 分支，请始终用 `npm run deploy`（带 `--branch main`）而非 `npm run deploy:preview`。
+
+> ⚠️ **务必加 `--skip-caching`**：`wrangler pages deploy` 默认会缓存已上传文件的哈希（存在 Cloudflare 端）。在本仓库（git 模式 + `wrangler.toml` 的 `pages_build_output_dir = "."`）下，修改文件后直接部署常会报 `Uploaded 0 files (xx already uploaded)`，而远程实际仍是旧内容——表现为改了代码/配置却不生效。加 `--skip-caching` 可强制重新计算并上传全部文件。`package.json` 里 `deploy` / `deploy:preview` 脚本均已带上该参数。
 
 ### 方式 C：拖拽部署
 
@@ -93,6 +102,34 @@ npm run deploy           # 等价于 wrangler pages deploy . --project-name stoc
 - **自定义域名**（可选）：
   - Dashboard → Pages → 项目 → Custom domains → 添加 `landing.stock-heat.com`（或你拥有的域名）
   - Cloudflare 自动签发证书
+
+---
+
+## APK 发布（Android 直装包）
+
+落地页「下载」区的「下载 APK 直接安装」按钮指向 Cloudflare R2 上的签名 APK，与 Windows 安装包同桶 `stock-heat-downloads`。
+
+```bash
+# 1. 构建 Android release 签名 APK（需 ANDROID_HOME 与 JDK）
+cd ..\stock_heat_app
+$env:ANDROID_HOME = "$env:LOCALAPPDATA\Android\sdk"
+flutter build apk --release
+# 产物：build\app\outputs\flutter-apk\app-release.apk
+
+# 2. 上传到 R2（覆盖同名对象，URL 不变）
+cd ..\stock-heat-backend
+npx --yes wrangler r2 object put stock-heat-downloads/stock_heat_app.apk `
+  --file "../stock_heat_app/build/app/outputs/flutter-apk/app-release.apk" `
+  --content-type "application/vnd.android.package-archive" --remote
+
+# 3. 重新部署落地页
+cd ..\stock-heat-landing
+npm run deploy
+```
+
+直链：`https://pub-05ca488187064ae4a5e77fdeb2520341.r2.dev/stock_heat_app.apk`
+
+> R2 边缘同步需 30s~几分钟，期间直链可能短暂 401/404，属正常现象。
 
 ---
 
@@ -122,12 +159,15 @@ npm run deploy
 | `04-watchlist.png` | 移动端自选预览 |
 | `05-news.png` | 移动端资讯预览 |
 | `06-market.png` | 移动端行情预览 |
+| `07-detail.png` | 移动端个股详情预览 |
+| `08-float.png` | 移动端悬浮盯盘球预览 |
 | `desktop-01-ranking.png` | 桌面端排名预览 |
 | `desktop-02-market.png` | 桌面端行情预览 |
 | `desktop-03-trend.png` | 桌面端走势预览 |
 | `desktop-04-watchlist.png` | 桌面端自选预览 |
 | `desktop-05-news.png` | 桌面端资讯播报预览 |
 | `desktop-06-detail.png` | 桌面端个股详情预览 |
+| `desktop-07-float.png` | 桌面端悬浮盯盘球预览 |
 | `feature-graphic.png` | OG / Twitter 分享图 |
 | `icon.png` | favicon / 浏览器图标 |
 

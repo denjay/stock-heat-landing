@@ -8,6 +8,8 @@
   // Windows 安装包托管于 Cloudflare R2（公共 r2.dev 直链，出口流量免费）
   var WINDOWS_DOWNLOAD_URL = 'https://pub-05ca488187064ae4a5e77fdeb2520341.r2.dev/stock_heat_app.msix';
   var ANDROID_DOWNLOAD_URL = 'https://play.google.com/store/apps/details?id=com.stockheat.stock_heat_app';
+  // Android 直装 APK 托管于 Cloudflare R2（与 Windows 安装包同桶）
+  var ANDROID_APK_URL = 'https://pub-05ca488187064ae4a5e77fdeb2520341.r2.dev/stock_heat_app.apk';
 
   // 应用下载地址
   (function applyDownloadUrls() {
@@ -19,6 +21,10 @@
     document.querySelectorAll('a.js-cta[data-platform="mobile"]').forEach(function (a) {
       if (ANDROID_DOWNLOAD_URL) a.href = ANDROID_DOWNLOAD_URL;
     });
+    var apk = document.getElementById('android-apk-download');
+    if (apk && ANDROID_APK_URL) apk.href = ANDROID_APK_URL;
+    var apkHero = document.getElementById('android-apk-download-hero');
+    if (apkHero && ANDROID_APK_URL) apkHero.href = ANDROID_APK_URL;
   })();
 
   // 平台切换：根据 Tab 上的 data-* 属性驱动对应元素的显隐

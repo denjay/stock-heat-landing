@@ -530,7 +530,7 @@ a:hover { color: var(--primary-2); }
   transition: transform .3s ease;
 }
 .desktop-shot:hover { transform: translateY(-6px) scale(1.01); }
-.desktop-shot img { width: 100%; display: block; }
+.desktop-shot img { width: 100%; display: block; aspect-ratio: 1213 / 1071; height: auto; object-fit: cover; }
 
 /* 下载卡片网格 */
 .download-grid {

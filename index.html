@@ -63,12 +63,12 @@
       <div class="hero-bg" aria-hidden="true"></div>
       <div class="container hero-inner">
         <div class="hero-text">
-          <span class="eyebrow">v1.1.5 · Windows / Android 双端</span>
+          <span class="eyebrow">v1.2.0 · Windows / Android 双端</span>
           <h1>实时热度排名<br /><span class="grad">AI 智能选股</span><br />财经资讯播报</h1>
           <p class="lede">
             聚合 <strong>6 大平台</strong> 热度数据 — 同花顺、东方财富、通达信、大智慧、雪球、淘股吧。
             可自定义权重、主板过滤、5 天走势追踪、智能提醒，<strong>后台持续播报</strong> 不错过任何重要资讯。
-            <strong>电脑、手机都能用</strong>，数据多端同步。
+            <strong>电脑、手机都能用</strong>，数据多端同步；桌面端更可<strong>联动通达信</strong>、唤出<strong>系统级悬浮球</strong>与<strong>悬浮窗</strong>常驻盯盘。
           </p>
 
           <!-- 平台切换 Tab -->
@@ -86,6 +86,10 @@
             <a class="btn btn-primary js-cta" data-platform="mobile" href="https://play.google.com/store/apps/details?id=com.stockheat.stock_heat_app" target="_blank" rel="noopener">
               <img src="assets/brands/googleplay.svg" alt="Google Play" width="20" height="20" />
               前往 Google Play 下载
+            </a>
+            <a class="btn btn-outline js-cta" data-platform="mobile" id="android-apk-download-hero" href="#" download rel="noopener">
+              <img src="assets/brands/android.svg" alt="Android" width="20" height="20" />
+              下载 APK 直接安装
             </a>
             <!-- Windows 端 CTA -->
             <a class="btn btn-primary js-cta" data-platform="windows" href="https://github.com/" target="_blank" rel="noopener" hidden>
@@ -105,10 +109,10 @@
         </div>
         <div class="hero-visual">
           <div class="phone-frame js-visual" data-platform="mobile">
-            <img src="assets/screenshots/hero-ranking.png" alt="综合热度排名界面" />
+            <img src="assets/screenshots/01-ranking.png" alt="综合热度排名界面" />
           </div>
           <div class="phone-frame phone-frame-2 js-visual" data-platform="mobile">
-            <img src="assets/screenshots/hero-ai-pick.png" alt="AI 掘金界面" />
+            <img src="assets/screenshots/03-trend.png" alt="热度走势界面" />
           </div>
           <div class="desktop-frame js-visual" data-platform="windows" hidden>
             <img src="assets/screenshots/desktop-01-ranking.png" alt="Windows 桌面端综合热度排名界面" />
@@ -203,11 +207,11 @@
           <article class="card">
             <div class="card-ico"><span>📊</span></div>
             <h3>行情 & K 线</h3>
-            <p>三大指数实时涨跌条、上涨家数占比折线、主力资金净流入柱状图、历史相似日匹配，以及手绘 K 线图。</p>
+            <p>实时追踪三大指数涨跌、涨跌家数、主力资金净流入与历史相似日，并内置手绘级 K 线图。</p>
             <ul class="bullets">
-              <li>K 线：分时 / 日K / 周K / 月K + MA + 成交量</li>
-              <li>双指缩放、平移，涨停高亮</li>
-              <li>板块 / 概念排行 6 周期切换</li>
+              <li>K 线：分时 / 日K / 周K / 月K，支持 MA 均线、成交量</li>
+              <li>双指缩放、平移，涨停板高亮</li>
+              <li>板块 / 概念排行，多周期切换</li>
             </ul>
           </article>
         </div>
@@ -258,6 +262,14 @@
             <div class="phone"><img src="assets/screenshots/06-market.png" alt="实时行情" loading="lazy" /></div>
             <figcaption>实时行情 · 主力资金</figcaption>
           </figure>
+          <figure class="shot">
+            <div class="phone"><img src="assets/screenshots/07-detail.png" alt="个股详情" loading="lazy" /></div>
+            <figcaption>个股详情 · 深度数据</figcaption>
+          </figure>
+          <figure class="shot">
+            <div class="phone"><img src="assets/screenshots/08-float.png" alt="悬浮盯盘球" loading="lazy" /></div>
+            <figcaption>悬浮球 · 系统级盯盘</figcaption>
+          </figure>
         </div>
 
         <!-- 桌面端截图 -->
@@ -285,6 +297,10 @@
           <figure class="shot shot-desktop">
             <div class="desktop-shot"><img src="assets/screenshots/desktop-06-detail.png" alt="桌面端个股详情" loading="lazy" /></div>
             <figcaption>个股详情 · 深度数据</figcaption>
+          </figure>
+          <figure class="shot shot-desktop">
+            <div class="desktop-shot"><img src="assets/screenshots/desktop-07-float.png" alt="桌面端悬浮盯盘球" loading="lazy" /></div>
+            <figcaption>悬浮球 · 系统级盯盘</figcaption>
           </figure>
         </div>
       </div>
@@ -345,6 +361,10 @@
               <img src="assets/brands/googleplay.svg" alt="Google Play" width="22" height="22" />
               前往 Google Play
             </a>
+            <a class="btn btn-outline btn-lg btn-block" id="android-apk-download" href="#" download rel="noopener">
+              <img src="assets/brands/android.svg" alt="Android" width="22" height="22" />
+              下载 APK 直接安装
+            </a>
             <p class="dc-hint">数据本地保存，不上传任何隐私。</p>
           </article>
 
@@ -378,16 +398,12 @@
         </header>
         <div class="faq">
           <details>
-            <summary>数据来源是什么？</summary>
-            <p>数据来自同花顺、东方财富、通达信、大智慧、雪球、淘股吧 6 个公开平台，每 30 分钟由后端定时抓取并入库到 Cloudflare D1。</p>
-          </details>
-          <details>
-            <summary>会推送通知打扰我吗？</summary>
-            <p>不会。默认仅当前页轮询刷新数据；订阅播报功能后会在通知栏常驻一条「暂停/继续/停止」快捷控制，随时可关。</p>
-          </details>
-          <details>
             <summary>热股 PRO 会员有什么特别？</summary>
             <p>解锁多线走势（5+ 只对比）、更多排名条数（最高 50）、自定义权重、悬浮球、实时 AI 分析（5 次/日）等增强功能。</p>
+          </details>
+          <details>
+            <summary>激活码怎么用？</summary>
+            <p>激活码为 24 位（形如 <code>XXXX-XXXX-XXXX-XXXX-XXXX-XXXX</code>），在「激活会员」页输入即可解锁热股 PRO。来源有两种：<strong>Google Play 订阅赠送</strong>（有效期与订阅时长一致）与<a href="https://m.tb.cn/h.8SB6Igg?tk=XQruT0y2TQd%20MF937" target="_blank" rel="noopener"><strong>闲鱼购买</strong></a>（1 个月 / 1 年两档）。每个激活码最多在 3 台设备（桌面端 + 安卓端合计）上激活，激活后不可解绑；重装系统或更换硬件可能改变设备指纹并重新占用一个名额，达 3 台上限需联系客服解绑旧设备。请妥善保管，遗失无法找回。</p>
           </details>
           <details>
             <summary>数据会上传吗？隐私安全吗？</summary>
@@ -399,7 +415,7 @@
           </details>
           <details>
             <summary>支持哪些平台？</summary>
-            <p>目前支持 <strong>Windows 桌面端</strong>（Windows 10/11，下载安装包即可）与 <strong>Android 移动端</strong>（Google Play 安装）。两端账号互通，自选股与提醒设置云端同步。暂无 iOS 计划。</p>
+            <p>目前支持 <strong>Windows 桌面端</strong>（Windows 10/11，下载 <code>.msix</code> 安装包即可）与 <strong>Android 移动端</strong>（Google Play 安装，或下载 APK 直接安装）。两端数据均保存在本机，无需注册账号，暂无 iOS 计划。</p>
           </details>
           <details>
             <summary>Windows 安装包怎么安装？</summary>
