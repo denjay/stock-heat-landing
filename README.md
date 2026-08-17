@@ -175,12 +175,18 @@ npm run deploy
 
 ## 下载地址配置
 
-页面支持 **Windows 桌面端**（下载安装包）与 **Android 移动端**（Google Play）双平台，下载入口通过 `script.js` 顶部的两个常量统一管理，**改一处即可全局生效**：
+页面支持 **Windows 桌面端**（下载安装包）与 **Android 移动端**（Google Play / APK 直装）双平台，下载入口通过 `script.js` 顶部的常量统一管理，**改一处即可全局生效**。
+
+**下载统计**：直装包（Windows MSIX / Android APK）的下载链接指向后端计数接口 `https://denjay.qzz.io/api/download?platform=windows|android`——用户点击时后端对当天该平台计数 +1，再 302 重定向到 R2 直链。统计接口 `GET /api/download/stats`（受 HMAC 鉴权保护）可查看各平台累计下载次数与按日明细。Google Play 走商店自带统计，不经过计数接口。
 
 ```js
 // script.js
-// Windows 安装包托管于 Cloudflare R2（公共 r2.dev 直链，出口流量免费）
-var WINDOWS_DOWNLOAD_URL = 'https://pub-05ca488187064ae4a5e77fdeb2520341.r2.dev/stock_heat_app.msix';
+var DOWNLOAD_API_BASE = 'https://denjay.qzz.io/api/download';
+// Windows 安装包（后端计数后 302 → R2 直链 stock_heat_app.msix）
+var WINDOWS_DOWNLOAD_URL = DOWNLOAD_API_BASE + '?platform=windows';
+// Android 直装 APK（后端计数后 302 → R2 直链 stock_heat_app.apk）
+var ANDROID_APK_URL = DOWNLOAD_API_BASE + '?platform=android';
+// Android 商店（Google Play 自带下载统计）
 var ANDROID_DOWNLOAD_URL = 'https://play.google.com/store/apps/details?id=com.stockheat.stock_heat_app';
 ```
 

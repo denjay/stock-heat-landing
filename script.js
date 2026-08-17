@@ -5,11 +5,16 @@
   // ╔══════════════════════════════════════════════════════════════╗
   // ║  下载地址配置：把这里改成你的真实地址即可，无需改动其它代码   ║
   // ╚══════════════════════════════════════════════════════════════╝
-  // Windows 安装包托管于 Cloudflare R2（公共 r2.dev 直链，出口流量免费）
-  var WINDOWS_DOWNLOAD_URL = 'https://pub-05ca488187064ae4a5e77fdeb2520341.r2.dev/stock_heat_app.msix';
+  // 后端下载入口（先计数后 302 重定向到 R2 直链）。落地页所有「直装包」
+  // 下载按钮都指向此接口，从而在用户点击时精确记录一次下载次数。
+  // 统计接口：GET https://denjay.qzz.io/api/download/stats（受鉴权保护）
+  var DOWNLOAD_API_BASE = 'https://denjay.qzz.io/api/download';
+  // Windows 安装包（后端计数后 302 → R2 直链 stock_heat_app.msix）
+  var WINDOWS_DOWNLOAD_URL = DOWNLOAD_API_BASE + '?platform=windows';
+  // Android 直装 APK（后端计数后 302 → R2 直链 stock_heat_app.apk）
+  var ANDROID_APK_URL = DOWNLOAD_API_BASE + '?platform=android';
+  // Android 商店（Google Play 自带下载统计，无需走计数接口）
   var ANDROID_DOWNLOAD_URL = 'https://play.google.com/store/apps/details?id=com.stockheat.stock_heat_app';
-  // Android 直装 APK 托管于 Cloudflare R2（与 Windows 安装包同桶）
-  var ANDROID_APK_URL = 'https://pub-05ca488187064ae4a5e77fdeb2520341.r2.dev/stock_heat_app.apk';
 
   // 应用下载地址
   (function applyDownloadUrls() {
