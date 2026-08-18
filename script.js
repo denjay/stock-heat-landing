@@ -1,4 +1,4 @@
-// 热股推广页 — 轻量交互动效
+// 盘股掘金推广页 — 轻量交互动效
 (function () {
   'use strict';
 
@@ -120,5 +120,5 @@
   }
 
   // 简易访问统计占位（如果未来要接入 GA / Plausible 直接在这里加）
-  console.log('%c热股 Stock Heat', 'color:#e53935;font-weight:bold;font-size:16px');
+  console.log('%c盘股掘金 Stock Heat', 'color:#e53935;font-weight:bold;font-size:16px');
 })();

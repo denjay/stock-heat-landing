@@ -1,6 +1,6 @@
-# Stock Heat Landing — 热股推广页
+# Stock Heat Landing — 盘股掘金推广页
 
-热股（Stock Heat Tracker）的官方推广页面，基于 **Cloudflare Pages** 部署，纯静态站点，无构建步骤。
+盘股掘金（Stock Heat Tracker）的官方推广页面，基于 **Cloudflare Pages** 部署，纯静态站点，无构建步骤。
 
 ---
 
@@ -242,7 +242,7 @@ npx wrangler r2 bucket dev-url enable stock-heat-downloads
 | 项目 | 仓库路径 | 部署目标 |
 |------|---------|---------|
 | 后端 API | `../stock-heat-backend/` | Cloudflare Workers（`stock-heat-api`） |
-| 隐私政策 | `../privacy-policy/` → 已托管于 `https://denjay.qzz.io/privacy` | Workers 路由 |
+| 隐私政策 | 由 `../stock-heat-backend/` 的 Workers 路由 `GET /privacy` 提供 | `https://denjay.qzz.io/privacy` |
 | **推广页（本项目）** | `./` | Cloudflare Pages（`stock-heat-landing`） |
 | App 前端 | `../stock_heat_app/` | Windows 安装包 + Android APK |
 

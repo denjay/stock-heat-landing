@@ -1,7 +1,7 @@
 {
   "name": "stock-heat-landing",
-  "version": "1.0.0",
-  "description": "热股 Stock Heat Tracker 推广页面（Cloudflare Pages 部署）",
+  "version": "1.2.4",
+  "description": "盘股掘金 Stock Heat Tracker 推广页面（Cloudflare Pages 部署）",
   "private": true,
   "scripts": {
     "dev": "wrangler pages dev .",
