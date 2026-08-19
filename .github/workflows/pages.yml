@@ -1,0 +1,46 @@
+name: Deploy to GitHub Pages
+
+on:
+  # 推送到 master 分支时自动部署
+  push:
+    branches: [master]
+  # 允许在 Actions 标签页手动触发
+  workflow_dispatch:
+
+# 允许 GITHUB_TOKEN 写入 Pages
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时间只允许一个部署，避免并发冲突
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # 纯静态站点，无需构建步骤；添加 .nojekyll 禁用 Jekyll 处理
+      - name: Add .nojekyll
+        run: touch .nojekyll
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          # 上传仓库根目录（index.html / assets / script.js / styles.css 等）
+          path: '.'
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
