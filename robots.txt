@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://stock-heat-landing.pages.dev/sitemap.xml

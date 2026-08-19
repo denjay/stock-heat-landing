@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://stock-heat-landing.pages.dev/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://stock-heat-landing.pages.dev/assets/screenshots/feature-graphic.png</image:loc>
+      <image:title>盘股掘金 Stock Heat Tracker</image:title>
+    </image:image>
+    <image:image>
+      <image:loc>https://stock-heat-landing.pages.dev/assets/screenshots/icon.png</image:loc>
+      <image:title>盘股掘金 图标</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://denjay.github.io/stock-heat-landing/</loc>
+    <lastmod>2026-08-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>

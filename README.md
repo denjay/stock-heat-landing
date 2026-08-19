@@ -226,14 +226,22 @@ npx wrangler r2 bucket dev-url enable stock-heat-downloads
 
 ## SEO & 性能
 
-- ✅ 完整 Open Graph / Twitter Card 元数据
-- ✅ 中文 / 英文双语 meta description
+- ✅ 完整 Open Graph / Twitter Card 元数据（og:image / twitter:image 使用绝对 URL，社交分享卡片图可正常加载）
+- ✅ `sitemap.xml`（已提交两个镜像域名 `stock-heat-landing.pages.dev` 与 `denjay.github.io/stock-heat-landing`，含关键图片）
+- ✅ `robots.txt`（允许全站爬取，并指向 sitemap）
+- ✅ 中文 / 英文双语 meta description、keywords
 - ✅ 截图 lazy loading（`loading="lazy"`）
-- ✅ 截图 7 天 immutable 缓存（`_headers`）
+- ✅ 截图 7 天 immutable 缓存（`_headers`，仅 Cloudflare Pages 生效）
 - ✅ 安全头：CSP / HSTS / X-Frame-Options / Referrer-Policy
 - ✅ `prefers-reduced-motion` 友好
 - ✅ 移动端响应式（980 / 720 两个断点）
 - ✅ Lighthouse 预期 95+（无第三方请求、无图片 CDN 依赖）
+
+> ⚠️ SEO 提示：新站上线后搜索引擎不会立即收录，需**主动提交**——
+> - Google Search Console：<https://search.google.com/search-console> 添加站点并验证（已内置 `google-site-verification` meta），提交 `sitemap.xml`。
+> - Bing Webmaster Tools：<https://www.bing.com/webmasters> 添加站点并提交 sitemap；Bing 收录后会同步给 Copilot / DuckDuckGo。
+> - 两个域名内容重复，建议以 `stock-heat-landing.pages.dev` 为主站、GitHub Pages 为镜像；`*.github.io` 子域 SEO 权重较低。
+> - 最见效的改进是**绑定自定义域名**（如 `landing.stock-heat.com`）并获取外部网站外链（GitHub 仓库 README、论坛帖等）。
 
 ---
 
